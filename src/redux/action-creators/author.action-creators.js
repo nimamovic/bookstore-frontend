@@ -87,7 +87,7 @@ export const editAuthor = (id,author) => {
         }
       }).then((response) => {
         const status = response.status;
-        if(status == 200) dispatch(editAuthorSuccess());
+        if(status === 200) dispatch(editAuthorSuccess());
         })
         .catch((error) => {
           dispatch(editAuthorFailure(error));
@@ -125,7 +125,7 @@ export const addAuthor = (author,history) => {
         }
       }).then((response) => {
         const status = response.status;
-        if(status == 201) dispatch(addAuthorSuccess());
+        if(status === 201) dispatch(addAuthorSuccess());
         history.push("/authors");
         }).catch((error) => {
           dispatch(addAuthorFailure(error));
@@ -196,7 +196,7 @@ const deleteAuthorFailure = (error) => {
         }
       }).then((response) => {
         const status = response.status;
-        if(status == 200) dispatch(deleteAuthorSuccess());
+        if(status === 200) dispatch(deleteAuthorSuccess());
         history.push('/authors')
         })
         .catch((error) => {
@@ -233,7 +233,7 @@ export const deleteAuthorsBook= (idAuthor,idBook) =>{
         }
       }).then((response) => {
         const status = response.status;
-        if(status == 200) dispatch(deleteAuthorsBookSuccess());
+        if(status === 200) dispatch(deleteAuthorsBookSuccess());
         })
         .catch((error) => {
           dispatch(deleteAuthorsBookFailure(error));
@@ -271,7 +271,7 @@ export const addAuthorsBook= (idAuthor,book) =>{
         }
       }).then((response) => {
         const status = response.status;
-        if(status == 200) dispatch(addAuthorsBookSuccess());
+        if(status === 200) dispatch(addAuthorsBookSuccess());
         })
         .catch((error) => {
           dispatch(addAuthorsBookFailure(error));

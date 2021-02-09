@@ -1,4 +1,3 @@
-import jwt from "jsonwebtoken";
 
 import {
   SIGN_IN_FAILURE,

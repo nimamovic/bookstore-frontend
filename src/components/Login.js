@@ -27,7 +27,6 @@ class Login extends React.Component {
   };
 
   render(){
-    const currentUser = this.props.currentUser;
     return (
     <div>
         <div>

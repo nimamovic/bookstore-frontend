@@ -70,10 +70,10 @@ class AuthorDetails extends React.Component {
   handleEdit = (event) => {
     event.preventDefault();
     let forEdit = {};
-    if(this.state.first_name != "") forEdit['first_name'] = this.state.first_name;
-    if(this.state.last_name != "") forEdit['last_name'] = this.state.last_name;
-    if(this.state.dob != "") forEdit['dob'] = this.state.dob;
-    if(this.state.image != "") forEdit['image'] = this.state.image;
+    if(this.state.first_name !== "") forEdit['first_name'] = this.state.first_name;
+    if(this.state.last_name !== "") forEdit['last_name'] = this.state.last_name;
+    if(this.state.dob !== "") forEdit['dob'] = this.state.dob;
+    if(this.state.image !== "") forEdit['image'] = this.state.image;
     this.state.booksToDelete.forEach(bookId => {
       this.props.dispatch(deleteAuthorsBook(this.state.id,bookId));
     });
@@ -95,15 +95,20 @@ class AuthorDetails extends React.Component {
     const { author } = this.props;
     const { allBooks } = this.props;
     let authorsBooks = [];
-    let momentDate = moment(author[0].dob);
-    author[0].dob = momentDate.format("YYYY-MM-DD");
-    authorsBooks = author[0].books;
+    let loadded = false;
+    if(author[0]){
+      loadded = true;
+      let momentDate = moment(author[0].dob);
+      author[0].dob = momentDate.format("YYYY-MM-DD");
+      authorsBooks = author[0].books;
+    }
     return (
       <div>
          <div class="container">
             <div class="row">
               <div class="col">
                 <div>
+                  {loadded ? (
                   <div class="card" width="30%">
                   <div class="card-body">
                     <h5 class="card-title">Author details:</h5>
@@ -197,6 +202,7 @@ class AuthorDetails extends React.Component {
                   </div>
                   </div>
                 </div>
+                ): null}
                 </div>
               </div>
           </div>

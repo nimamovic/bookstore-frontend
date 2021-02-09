@@ -91,13 +91,18 @@ class BookDetails extends React.Component {
     const { allAuthors } = this.props;
     const currentUser = this.props.currentUser;
     let booksAuthors = [];
-    booksAuthors = book[0].authors;
+    let loadded = false;
+    if(book[0]){
+      loadded = true;
+      booksAuthors = book[0].authors;
+    }
     return (
       <div >
         <div class="container">
           <div class="row">
             <div class="col">
               <div>
+              {loadded ? (
                <div class="card" width="30%">
                  <div class="card-body">
                   <h5 class="card-title">Book details:</h5>
@@ -189,6 +194,7 @@ class BookDetails extends React.Component {
                    </div>
                  </div>
                </div>
+               ): null}
              </div>
            </div>
          </div>

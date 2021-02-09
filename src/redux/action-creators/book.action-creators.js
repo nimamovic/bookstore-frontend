@@ -120,7 +120,7 @@ export const addBook = (book,history) => {
         }
       }).then((response) => {
         const status = response.status;
-        if(status == 201) dispatch(addBookSuccess());
+        if(status === 201) dispatch(addBookSuccess());
         history.push("/books");
         })
         .catch((error) => {
@@ -159,7 +159,7 @@ export const editBook = (id,book) => {
         }
       }).then((response) => {
         const status = response.status;
-        if(status == 200) dispatch(editBookSuccess());
+        if(status === 200) dispatch(editBookSuccess());
         })
         .catch((error) => {
           dispatch(editBookFailure(error));
@@ -195,7 +195,7 @@ export const deleteBooksAuthor = (idBook,idAuthor) =>{
         }
       }).then((response) => {
         const status = response.status;
-        if(status == 2000) dispatch(deleteBooksAuthorSuccess());
+        if(status === 200) dispatch(deleteBooksAuthorSuccess());
         })
         .catch((error) => {
           dispatch(deleteBooksAuthorFailure(error));
@@ -233,7 +233,7 @@ export const addBooksAuthor= (idBook,author) =>{
         }
       }).then((response) => {
         const status = response.status;
-        if(status == 200) dispatch(addBooksAuthorSuccess());
+        if(status === 200) dispatch(addBooksAuthorSuccess());
         })
         .catch((error) => {
           dispatch(addBooksAuthorFailure(error));
@@ -270,7 +270,7 @@ export const deleteBook = (id,history) =>{
         }
       }).then((response) => {
         const status = response.status;
-        if(status == 200) dispatch(deleteBookSuccess());
+        if(status === 200) dispatch(deleteBookSuccess());
         history.push('/books');
         })
         .catch((error) => {
